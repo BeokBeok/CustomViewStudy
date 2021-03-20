@@ -2,8 +2,11 @@
 <resources>
 
     <declare-styleable name="CustomLabeledCheckBox">
-        <attr name="text" format="reference|string" />
-        <attr name="checked" format="boolean" />
+        <attr name="android:text" format="reference|string" />
+        <attr name="android:checked" format="boolean" />
     </declare-styleable>
 
+    <declare-styleable name="CustomLabeledCheckBoxStyle">
+        <attr name="customLabeledCheckBoxStyle" format="reference" />
+    </declare-styleable>
 </resources>

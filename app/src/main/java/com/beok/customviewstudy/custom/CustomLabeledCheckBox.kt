@@ -10,14 +10,14 @@ import com.beok.customviewstudy.databinding.CustomLabeledCheckboxBinding
 class CustomLabeledCheckBox @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet?,
-    defStyleAttr: Int = 0
+    defStyleAttr: Int = R.attr.customLabeledCheckBoxStyle
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
 
     private val binding =
         CustomLabeledCheckboxBinding.inflate(LayoutInflater.from(context), this, true)
 
     init {
-        setupAttrs(context, attrs)
+        setupAttrs(context, attrs, defStyleAttr)
         setupListener()
     }
 
@@ -27,13 +27,19 @@ class CustomLabeledCheckBox @JvmOverloads constructor(
         }
     }
 
-    private fun setupAttrs(context: Context, attrs: AttributeSet?) {
+    private fun setupAttrs(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
         context
-            .obtainStyledAttributes(attrs, R.styleable.CustomLabeledCheckBox)
+            .obtainStyledAttributes(
+                attrs,
+                R.styleable.CustomLabeledCheckBox,
+                defStyleAttr,
+                R.style.CustomLabeledCheckBoxStyle
+            )
             .run {
-                binding.tvLabeledCheckbox.text = getString(R.styleable.CustomLabeledCheckBox_text)
+                binding.tvLabeledCheckbox.text =
+                    getString(R.styleable.CustomLabeledCheckBox_android_text)
                 binding.cbLabeledCheckbox.isChecked =
-                    getBoolean(R.styleable.CustomLabeledCheckBox_checked, false)
+                    getBoolean(R.styleable.CustomLabeledCheckBox_android_checked, false)
                 recycle()
             }
     }

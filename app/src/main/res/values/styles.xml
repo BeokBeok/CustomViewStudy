@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CustomLabeledCheckBoxStyle">
+        <item name="android:text">BeokBeok</item>
+        <item name="android:checked">false</item>
+    </style>
+</resources>
